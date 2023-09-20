@@ -1,4 +1,4 @@
 export default [
-    "Algabo",
-    "Iberia",
+    { title: 'Algabo' },
+    { title: 'Iberia' },
 ]

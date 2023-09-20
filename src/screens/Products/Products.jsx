@@ -5,9 +5,10 @@ import React, { useEffect, useState } from 'react'
 import allProducts from '../../data/products'
 import styles from './Products.style'
 
-const Products = ({ category, setProductSelected }) => {
+const Products = ({ navigation, route }) => {
   const [arrProducts, setArrProducts] = useState([])
   const [keyword, setKeyword] = useState('')
+  const { category } = route.params
 
   useEffect(() => {
     if (category) {
@@ -30,15 +31,17 @@ const Products = ({ category, setProductSelected }) => {
 
   return (
     <View style={styles.container}>
-      <Header title={category} />
       <
 // @ts-ignore
-      SearchInput onSearch={setKeyword} />
+      Header title={category} />
+      <SearchInput onSearch={setKeyword} />
       <View style={styles.listContainer}>
         <FlatList
           data={arrProducts}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => setProductSelected(item)}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Details', { product: item })}
+            >
               <Text>{item.
 // @ts-ignore
               title}</Text>

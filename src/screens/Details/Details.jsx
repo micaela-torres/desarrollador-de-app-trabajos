@@ -4,10 +4,11 @@ import { Header } from '../../components'
 import React from 'react'
 import styles from './Details.style'
 
-const Details = ({ product }) => {
+const Details = ({ route }) => {
+  const {product } = route.params
   return (
     <View style={styles.container}>
-      <Header title={'Detalle'} />
+      <Header title={'Detalle'} action={undefined} />
       <Image style={styles.image} source={{ uri: product.images[0] }} />
       <Text style={styles.title}>{product.title}</Text>
       <Text>{product.description}</Text>

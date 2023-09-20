@@ -1,21 +1,26 @@
+// @ts-ignore
 import { Image, Pressable, Text, View, useWindowDimensions } from 'react-native'
+// @ts-ignore
 import React, { useEffect } from 'react'
 
-import { Card } from '../../../../components'
 import styles from './CategoryItem.style'
 
-const CategoryItem = ({ category, setCategorySelected }) => {
+const CategoryItem = ({ category, navigation }) => {
+  // @ts-ignore
   const { height, width } = useWindowDimensions()
-
-  useEffect(() => {
-    console.log(height, width)
-  }, [])
-
   return (
-    <Pressable onPress={() => setCategorySelected(category)}>
-      <Card style={styles.cardContainer}>
-        <Text style={styles.text}>{category}</Text>
-      </Card>
+    <Pressable
+      onPress={() => navigation.navigate('Products', { category })}
+      // @ts-ignore
+      style={styles.container}
+    >
+      <View style={styles.
+// @ts-ignore
+      contentContainer}>
+        <Text style={styles.
+// @ts-ignore
+        text}>{category}</Text>
+      </View>
     </Pressable>
   )
 }
